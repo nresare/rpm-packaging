@@ -1,9 +1,12 @@
-pam-ssh-agent-0.9.0.crate:
-	curl -LO https://static.crates.io/crates/pam-ssh-agent/pam-ssh-agent-0.9.0.crate
-	sha256sum -c pam-ssh-agent-0.9.0.crate.sha256
+# whenever this is changed, the checksum file needs to be updated
+version = 0.9.0
+
+pam-ssh-agent-$(version).crate:
+	curl -LO https://static.crates.io/crates/pam-ssh-agent/pam-ssh-agent-$(version).crate
+	sha256sum -c pam-ssh-agent-$(version).crate.sha256
 
 rust-pam-ssh-agent.spec: /usr/bin/rust2rpm
-	rust2rpm pam-ssh-agent
+	rust2rpm pam-ssh-agent@$(version)
 
-srpm: pam-ssh-agent-0.9.0.crate rust-pam-ssh-agent.spec
+srpm: pam-ssh-agent-$(version).crate rust-pam-ssh-agent.spec
 	rpmbuild -bs $(spec) --define "_sourcedir ." --define "_srcrpmdir $(outdir)"
