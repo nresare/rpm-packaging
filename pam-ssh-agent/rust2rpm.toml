@@ -1,0 +1,13 @@
+[package]
+cargo-install-lib = false
+suppress-cdylib-install-fixme = true
+extra-files = ["%{_libdir}/security/pam_ssh_agent.so"]
+
+[scripts.install]
+post = [
+  "install -d -m 755 %{buildroot}%{_libdir}/security",
+  "install -m 755 target/release/libpam_ssh_agent.so %{buildroot}%{_libdir}/security/pam_ssh_agent.so"
+]
+
+[requires]
+build = ["pam-devel"]
