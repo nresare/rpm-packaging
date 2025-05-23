@@ -1,6 +1,3 @@
-/usr/bin/rust2rpm:
-	dnf install -y rust2rpm
-
 pam-ssh-agent-0.9.0.crate:
 	curl -LO https://static.crates.io/crates/pam-ssh-agent/pam-ssh-agent-0.9.0.crate
 	sha256sum -c pam-ssh-agent-0.9.0.crate.sha256
