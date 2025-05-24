@@ -1,12 +1,13 @@
 # whenever this is changed, the checksum file needs to be updated
 version = 1.0.0
+crate = ssh-agent-client-rs
 
-ssh-agent-client-rs-$(version).crate:
-	curl -LO https://static.crates.io/crates/ssh-agent-client-rs/ssh-agent-client-rs-$(version).crate
-	sha256sum -c ssh-agent-client-rs-1.0.0.crate.sha256
+$(crate)-$(version).crate:
+	curl -LO https://static.crates.io/crates/$(crate)/$(crate)-$(version).crate
+	sha256sum -c crate.sha256
 
-rust-ssh-agent-client-rs.spec: /usr/bin/rust2rpm
-	rust2rpm ssh-agent-client-rs@$(version)
+rust-$(crate).spec: /usr/bin/rust2rpm
+	rust2rpm $(crate)@$(version)
 
-srpm: ssh-agent-client-rs-$(version).crate rust-ssh-agent-client-rs.spec
+srpm: $(crate)-$(version).crate rust-$(crate).spec
 	rpmbuild -bs $(spec) --define "_sourcedir ." --define "_srcrpmdir $(outdir)"
