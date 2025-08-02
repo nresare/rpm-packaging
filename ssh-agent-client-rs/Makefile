@@ -1,5 +1,5 @@
 # whenever this is changed, the checksum file needs to be updated
-version = 1.0.0
+version = 1.1.1
 crate = ssh-agent-client-rs
 
 $(crate)-$(version).crate:
