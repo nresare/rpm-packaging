@@ -1,5 +1,5 @@
 # whenever this is changed, the checksum file needs to be updated
-version = 0.9.2
+version = 0.9.3
 
 pam-ssh-agent-$(version).crate:
 	curl -LO https://static.crates.io/crates/pam-ssh-agent/pam-ssh-agent-$(version).crate
