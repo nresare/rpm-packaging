@@ -1,6 +1,7 @@
 [package]
 extra-patches = [
   { number = 2, file = "pam-bindings-0.1.1_readme.patch"},
+  { number = 3, file = "pam-bindings-0.1.1_LICENSE.patch"},
 ]
 
 [requires]

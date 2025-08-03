@@ -1,0 +1,11 @@
+--- rust-pam-bindings.spec.orig	2025-08-02 23:04:09.156813201 +0100
++++ rust-pam-bindings.spec	2025-08-02 23:21:29.463587327 +0100
+@@ -33,7 +33,7 @@
+ use the "%{crate}" crate.
+ 
+ %files          devel
+-# FIXME: no license files detected
++%license LICENSE
+ %{crate_instdir}/
+ 
+ %package     -n %{name}+default-devel

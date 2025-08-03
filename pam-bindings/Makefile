@@ -4,6 +4,7 @@ crate = pam-bindings
 
 rust-pam-bindings.spec:
 	rust2rpm --ignore-missing-license-files $(crate)@$(version)
+	patch -p0 <rust-pam-bindings.spec_license.patch
 
 $(crate)-$(version).crate:
 	curl -LO https://static.crates.io/crates/$(crate)/$(crate)-$(version).crate
