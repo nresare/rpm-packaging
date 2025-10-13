@@ -1,5 +1,11 @@
+[package]
+extra-patches = [
+  { number = 2, file = "pam-bindings-0.1.1_readme.patch"},
+]
+
 [package.license-files]
-include = ["LICENSE"]
+include = [ "LICENSE"]
+
 
 [[package.extra-sources]]
 number = 10

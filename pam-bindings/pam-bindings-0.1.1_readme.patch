@@ -1,0 +1,12 @@
+diff --new-file -ur pam-bindings-0.1.1.orig/Cargo.toml pam-bindings-0.1.1/Cargo.toml
+--- pam-bindings-0.1.1.orig/Cargo.toml	2025-05-22 12:53:15.635029396 +0100
++++ pam-bindings-0.1.1/Cargo.toml	2025-05-22 12:52:55.797752225 +0100
+@@ -14,7 +14,7 @@
+ version = "0.1.1"
+ authors = ["Anthony Nowell <anowell@gmail.com>"]
+ description = "PAM bindings for Rust"
+-readme = "../README.md"
++readme = "README.md"
+ keywords = [
+     "pam",
+     "ffi",
