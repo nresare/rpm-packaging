@@ -1,8 +1,31 @@
-[package]
-extra-patches = [
-  { number = 2, file = "pam-bindings-0.1.1_readme.patch"},
-  { number = 3, file = "pam-bindings-0.1.1_LICENSE.patch"},
+[package.license-files]
+include = ["LICENSE"]
+
+[[package.extra-sources]]
+number = 10
+file = "https://github.com/anowell/pam-rs/raw/3d9318b5b812d9142595928deec23e5843a60995/LICENSE"
+comments = [
+    "LICENSE is missing from published pam-bindings crate",
+    "https://github.com/anowell/pam-rs/issues/17",
+    "Fix missing license files in published crates",
+    "https://github.com/anowell/pam-rs/pull/18",
 ]
+
+[[package.extra-sources]]
+number = 11
+file = "https://github.com/anowell/pam-rs/raw/3d9318b5b812d9142595928deec23e5843a60995/README.md"
+comments = [
+    "README.md is missing from published pam-bindings crate",
+    "https://github.com/anowell/pam-rs/issues/17",
+]
+
+[scripts.prep]
+pre = [
+    "# Copy in the workspace license file",
+    "cp -p '%{SOURCE10}' .",
+    "cp -p '%{SOURCE11}' .",
+]
+
 
 [requires]
 build = ["pam-devel"]
