@@ -1,0 +1,16 @@
+diff -ur ssh-agent-client-rs-1.1.2.old/Cargo.toml ssh-agent-client-rs-1.1.2/Cargo.toml
+--- ssh-agent-client-rs-1.1.2.old/Cargo.toml	1970-01-01 01:00:01.000000000 +0100
++++ ssh-agent-client-rs-1.1.2/Cargo.toml	2025-10-14 22:28:45.011204871 +0100
+@@ -68,10 +68,10 @@
+ features = ["crypto"]
+ 
+ [dependencies.thiserror]
+-version = "2.0.17"
++version = "2.0.16"
+ 
+ [dev-dependencies.anyhow]
+-version = "1.0.100"
++version = "1.0.99"
+ 
+ [dev-dependencies.rand]
+ version = "0.9.1"

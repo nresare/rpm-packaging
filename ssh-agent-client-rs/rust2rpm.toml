@@ -1,0 +1,5 @@
+[package]
+extra-patches = [
+  { number = 10, file = "ssh-agent-client-rs-1.1.2_deps_rollback.patch"},
+]
+
