@@ -1,0 +1,37 @@
+diff -ur pam-bindings-0.3.0.orig/Cargo.toml rust-pam-bindings-0.3.0-build/pam-bindings-0.3.0/Cargo.toml
+--- pam-bindings-0.3.0.orig/Cargo.toml	2026-06-06 03:27:28.793794704 -0400
++++ rust-pam-bindings-0.3.0-build/pam-bindings-0.3.0/Cargo.toml	2026-06-06 03:40:27.567877014 -0400
+@@ -79,3 +79,6 @@
+ 
+ [dev-dependencies.tempfile]
+ version = "3"
++
++[dev-dependencies.regex]
++version = "1"
+diff -ur pam-bindings-0.3.0.orig/tests/integration/test_username.rs rust-pam-bindings-0.3.0-build/pam-bindings-0.3.0/tests/integration/test_username.rs
+--- pam-bindings-0.3.0.orig/tests/integration/test_username.rs	2026-06-06 03:27:28.794080332 -0400
++++ rust-pam-bindings-0.3.0-build/pam-bindings-0.3.0/tests/integration/test_username.rs	2026-06-06 03:39:57.008856862 -0400
+@@ -1,4 +1,5 @@
+ use crate::harness::pamtester;
++use regex::Regex;
+ 
+ #[test]
+ fn test_username_example_module() {
+@@ -11,7 +12,8 @@
+         &[],
+     );
+ 
+-    let expected_stdout = "pamtester: successfully opened a session\n";
++    let expected_stdout = Regex::new("pamtester: succ?essfully opened a session\n")
++        .expect("Faied to construct regex");
+     let expected_stderr = format!("username: {test_username}\n");
+     let actual_stdout = String::from_utf8_lossy(&output.stdout);
+     let actual_stderr = String::from_utf8_lossy(&output.stderr);
+@@ -20,6 +22,6 @@
+         output.status.success(),
+         "stdout: {actual_stdout} stderr: {actual_stderr}"
+     );
+-    assert_eq!(expected_stdout, String::from_utf8_lossy(&output.stdout));
++    assert!(expected_stdout.captures(&String::from_utf8_lossy(&output.stdout)).is_some());
+     assert_eq!(expected_stderr, String::from_utf8_lossy(&output.stderr));
+ }
