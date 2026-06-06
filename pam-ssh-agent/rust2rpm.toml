@@ -1,4 +1,7 @@
 [package]
+extra-patches = [
+  { number = 10, file = "pam-ssh-agent-hostname-dep-fix.patch"},
+]
 cargo-install-lib = false
 suppress-cdylib-install-fixme = true
 extra-files = ["%{_libdir}/security/pam_ssh_agent.so"]
