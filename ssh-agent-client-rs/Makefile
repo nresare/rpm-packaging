@@ -1,5 +1,5 @@
 # whenever this is changed, the checksum file needs to be updated
-version = 1.1.2
+version = 1.1.3
 crate = ssh-agent-client-rs
 
 $(crate)-$(version).crate:
@@ -10,4 +10,4 @@ rust-$(crate).spec: /usr/bin/rust2rpm
 	rust2rpm $(crate)@$(version)
 
 srpm: $(crate)-$(version).crate rust-$(crate).spec
-	rpmbuild -bs $(spec) --define "_sourcedir ." --define "_srcrpmdir $(outdir)"
+	rpmbuild -bs rust-$(crate).spec --define "_sourcedir ." --define "_srcrpmdir $(outdir)"
